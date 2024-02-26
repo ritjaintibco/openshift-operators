@@ -1,17 +1,16 @@
 apiVersion: netscaler.com/v1
 kind: NetscalerObservabilityExporter
 metadata:
-  name: nsoe
+  name: netscalerobservabilityexporter-sample
 spec:
   # Default values copied from <project_dir>/helm-charts/netscaler-observability-exporter/values.yaml
   affinity: {}
   elasticsearch:
     enabled: false
-    indexprefix: ""
-    server: ""
+    indexprefix: null
+    server: null
   headless: false
-  image: '{{ .Values.imageRegistry }}/{{ .Values.imageRepository }}:{{ .Values.imageTag
-    }}'
+  image: '{{ .Values.imageRegistry }}/{{ .Values.imageRepository }}:{{ .Values.imageTag }}'
   imageRegistry: quay.io
   imageRepository: netscaler/netscaler-observability-exporter
   imageTag: 1.8.001
@@ -21,12 +20,12 @@ spec:
     queuelimit: 1000
     window: 5
   kafka:
-    broker: ""
+    broker: null
     dataFormat: AVRO
     enabled: false
-    topic: "HTTP"
+    topic: null
   license:
-    accept: "no"
+    accept: false
   nodePortRequired: false
   ns_tracing:
     enabled: false
@@ -37,10 +36,10 @@ spec:
   replicas: 1
   resources: {}
   splunk:
-    authtoken: ""
+    authtoken: null
     enabled: false
-    indexprefix: ""
-    server: ""
+    indexprefix: null
+    server: null
   timeseries:
     enabled: false
     nodePort: 30002
