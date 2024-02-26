@@ -1,6 +1,4 @@
-## Append samples of your project ##
+## Append samples you want in your CSV to this file as resources ##
 resources:
-- netscaler_v1_netscaleringresscontroller.yaml
-- netscaler_v1_netscalercpxwithingresscontroller.yaml
-- netscaler_v1_netscalerobservabilityexporter.yaml
-#+kubebuilder:scaffold:manifestskustomizesamples
+- netscaler_v1_.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

@@ -9,12 +9,10 @@ namespace: netscaler-operator-system
 namePrefix: netscaler-operator-
 
 # Labels to add to all resources and selectors.
-#labels:
-#- includeSelectors: true
-#  pairs:
-#    someName: someValue
+#commonLabels:
+#  someName: someValue
 
-resources:
+bases:
 - ../crd
 - ../rbac
 - ../manager
@@ -22,9 +20,7 @@ resources:
 #- ../prometheus
 
 patchesStrategicMerge:
-# Protect the /metrics endpoint by putting it behind auth.
-# If you want your controller-manager to expose the /metrics
-# endpoint w/o any authn/z, please comment the following line.
+  # Protect the /metrics endpoint by putting it behind auth.
+  # If you want your controller-manager to expose the /metrics
+  # endpoint w/o any authn/z, please comment the following line.
 - manager_auth_proxy_patch.yaml
-
-

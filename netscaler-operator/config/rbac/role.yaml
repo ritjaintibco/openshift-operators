@@ -29,98 +29,6 @@ rules:
   - create
 
 ##
-## Additonal rules for Operator
-##
-- verbs:
-  - "*"
-  apiGroups:
-  - "rbac.authorization.k8s.io"
-  resources:
-  - "clusterrolebindings"
-  - "clusterroles"
-  - "roles"
-  - "rolebindings"
-- verbs:
-  - "*"
-  apiGroups:
-  - "apps"
-  resources:
-  - "deployments"
-  - "daemonsets"
-- apiGroups:
-  - "apps.openshift.io"
-  resources:
-  - "deploymentconfigs"
-  verbs:
-  - '*'
-- verbs:
-  - "*"
-  apiGroups:
-  - ""
-  resources:
-  - "pods"
-  - "services"
-  - "services/finalizers"
-  - "endpoints"
-  - "persistentvolumeclaims"
-  - "configmaps"
-  - "serviceaccounts"
-- apiGroups:
-  - "apiextensions.k8s.io"
-  resources:
-  - "customresourcedefinitions"
-  verbs:
-  - '*'
-- apiGroups:
-  - "networking.k8s.io"
-  resources:
-  - "ingressclasses"
-  verbs:
-  - '*'
-- apiGroups:
-  - "monitoring.coreos.com"
-  resources:
-  - "servicemonitors"
-  verbs:
-  - "*"
-
-##
-## Rules for netscaler.com/v1, Kind: NetscalerIngressController
-##
-- apiGroups:
-  - netscaler.com
-  resources:
-  - netscaleringresscontrollers
-  - netscaleringresscontrollers/status
-  - netscaleringresscontrollers/finalizers
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-
-##
-## Rules for netscaler.com/v1, Kind: NetscalerCpxWithIngressController
-##
-- apiGroups:
-  - netscaler.com
-  resources:
-  - netscalercpxwithingresscontrollers
-  - netscalercpxwithingresscontrollers/status
-  - netscalercpxwithingresscontrollers/finalizers
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-
-##
 ## Rules for netscaler.com/v1, Kind: NetscalerObservabilityExporter
 ##
 - apiGroups:
@@ -137,5 +45,18 @@ rules:
   - patch
   - update
   - watch
+- verbs:
+  - "*"
+  apiGroups:
+  - ""
+  resources:
+  - "configmaps"
+  - "services"
+- verbs:
+  - "*"
+  apiGroups:
+  - "apps"
+  resources:
+  - "deployments"
 
-#+kubebuilder:scaffold:rules
+# +kubebuilder:scaffold:rules
